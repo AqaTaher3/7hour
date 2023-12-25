@@ -1,11 +1,28 @@
 {% extends 'main.html' %}
 
+
+
 {% block content %}
+</h1>
 
-<h1>hOME PAGE</h1>
+<h1> Host : {{room.host}}</h1> 
 
-{% for room in rooms %}
-  <a> {{room.id}} -- {{rrom.name}} </a>
-{% endfor  %}
+<hr>
 
-{% endblock %}
+<div>
+    <p> Description : {{room.description}}</p> 
+</div>
+
+<hr>
+<small> Updated : {{room.updated}}</small> 
+<hr>
+<h2> Room_id : {{room.id}}</h2> <br>
+<hr>
+<h3>
+<a href = "{% url 'base:delete-room'  room.id %}"> Delete Room </a> <br><hr>
+<a href="{% url 'base:update-room' room.id %}"> Update</a> <br>
+</h3>
+
+
+
+{% endblock content %}
